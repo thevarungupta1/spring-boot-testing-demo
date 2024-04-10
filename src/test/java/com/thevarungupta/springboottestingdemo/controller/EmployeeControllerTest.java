@@ -42,9 +42,9 @@ public class EmployeeControllerTest {
 
         // given - precondition or setup
         Employee employee = Employee.builder()
-                .firstName("Ramesh")
-                .lastName("Fadatare")
-                .email("ramesh@gmail.com")
+                .firstName("John")
+                .lastName("Smith")
+                .email("john@gmail.com")
                 .build();
         given(employeeService.saveEmployee(any(Employee.class)))
                 .willAnswer((invocation)-> invocation.getArgument(0));
@@ -71,7 +71,7 @@ public class EmployeeControllerTest {
     public void givenListOfEmployees_whenGetAllEmployees_thenReturnEmployeesList() throws Exception{
         // given - precondition or setup
         List<Employee> listOfEmployees = new ArrayList<>();
-        listOfEmployees.add(Employee.builder().firstName("Ramesh").lastName("Fadatare").email("ramesh@gmail.com").build());
+        listOfEmployees.add(Employee.builder().firstName("John").lastName("Smith").email("john@gmail.com").build());
         listOfEmployees.add(Employee.builder().firstName("Tony").lastName("Stark").email("tony@gmail.com").build());
         given(employeeService.getAllEmployees()).willReturn(listOfEmployees);
 
@@ -93,8 +93,8 @@ public class EmployeeControllerTest {
         // given - precondition or setup
         long employeeId = 1L;
         Employee employee = Employee.builder()
-                .firstName("Ramesh")
-                .lastName("Fadatare")
+                .firstName("John")
+                .lastName("Smith")
                 .email("ramesh@gmail.com")
                 .build();
         given(employeeService.getEmployeeById(employeeId)).willReturn(Optional.of(employee));
@@ -118,9 +118,9 @@ public class EmployeeControllerTest {
         // given - precondition or setup
         long employeeId = 1L;
         Employee employee = Employee.builder()
-                .firstName("Ramesh")
-                .lastName("Fadatare")
-                .email("ramesh@gmail.com")
+                .firstName("John")
+                .lastName("Smith")
+                .email("john@gmail.com")
                 .build();
         given(employeeService.getEmployeeById(employeeId)).willReturn(Optional.empty());
 
@@ -138,15 +138,15 @@ public class EmployeeControllerTest {
         // given - precondition or setup
         long employeeId = 1L;
         Employee savedEmployee = Employee.builder()
-                .firstName("Ramesh")
-                .lastName("Fadatare")
-                .email("ramesh@gmail.com")
+                .firstName("John")
+                .lastName("Smith")
+                .email("john@gmail.com")
                 .build();
 
         Employee updatedEmployee = Employee.builder()
-                .firstName("Ram")
-                .lastName("Jadhav")
-                .email("ram@gmail.com")
+                .firstName("Tony")
+                .lastName("Star")
+                .email("tony@gmail.com")
                 .build();
         given(employeeService.getEmployeeById(employeeId)).willReturn(Optional.of(savedEmployee));
         given(employeeService.updateEmployee(any(Employee.class)))
@@ -172,15 +172,15 @@ public class EmployeeControllerTest {
         // given - precondition or setup
         long employeeId = 1L;
         Employee savedEmployee = Employee.builder()
-                .firstName("Ramesh")
-                .lastName("Fadatare")
-                .email("ramesh@gmail.com")
+                .firstName("John")
+                .lastName("Smith")
+                .email("john@gmail.com")
                 .build();
 
         Employee updatedEmployee = Employee.builder()
-                .firstName("Ram")
-                .lastName("Jadhav")
-                .email("ram@gmail.com")
+                .firstName("Tony")
+                .lastName("Star")
+                .email("tony@gmail.com")
                 .build();
         given(employeeService.getEmployeeById(employeeId)).willReturn(Optional.empty());
         given(employeeService.updateEmployee(any(Employee.class)))
